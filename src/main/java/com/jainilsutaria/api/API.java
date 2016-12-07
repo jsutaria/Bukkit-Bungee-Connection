@@ -9,32 +9,23 @@ import net.md_5.bungee.api.plugin.Plugin;
 
 public class API {
 
-	private API_Type type;
-	private Plugin bungeeplugin;
-	private JavaPlugin bukkitplugin;
+	private static API instance;
+	
+	public static API getInstance() {
+		return instance;
+	}
+	private JavaPlugin plugin;
 	
 	private Set<API_Server> servers = new HashSet<API_Server>();
 	private Set<API_Player> players = new HashSet<API_Player>();
-	
-	public API(Plugin plugin) {
-		this.type = API_Type.BUNGEE;
-		this.bungeeplugin = plugin;
-		this.bukkitplugin = null;
-	}
-	
+		
 	public API(JavaPlugin plugin) {
-		this.type = API_Type.BUNGEE;
-		this.bukkitplugin = plugin;
-		this.bungeeplugin = null;
+		this.plugin = plugin;
+		instance = this;
 	}
 	
-	public API_Type getType() {
-		return this.type;
-	}
-	
-	public Object getPlugin() {
-		return 	this.type.equals(API_Type.BUKKIT) ?
-				bukkitplugin : bungeeplugin;
+	public JavaPlugin getPlugin() {
+		return this.plugin;
 	}
 	
 	public Set<API_Server> getServers() {
