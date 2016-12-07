@@ -1,0 +1,33 @@
+/target/
+/.idea/
+/out/
+
+/.settings/
+/.classpath
+/.project
+
+*.iml
+*.ipr
+*.iws
+
+# OS Files #
+.DS_Store
+ 
+*.class
+ 
+# Package Files #
+*.jar
+*.war
+*.ear
+*.db
+!/target/BungeeBukkitAPI.jar
+ 
+######################
+# Windows
+######################
+ 
+# Windows image file caches
+Thumbs.db 
+ 
+# Folder config file
+Desktop.ini
